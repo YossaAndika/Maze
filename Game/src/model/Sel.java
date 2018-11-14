@@ -47,6 +47,23 @@ public class Sel {
         this.warna = warna;
     }
 
+//    
+//    public boolean isSerongKananBawah() {
+//        if (kolom * lebar + lebar < Tempat.batasBawah) {
+//            return false;
+//        } else {
+//            return true;
+//        }
+//    }
+//    
+//    public void geserSerongKananBawah() {
+//        if (isSerongKananBawah()== false) {
+//            kolom++;
+//            baris++;
+//        }
+//    }
+    
+    
     /**
      * Fungsi mengecek sel ada di batas kiri
      *
@@ -66,6 +83,7 @@ public class Sel {
      *
      * @return
      */
+    
     public boolean isBatasKanan() {
         if (kolom * lebar + lebar < Tempat.batasKanan) {
             return false;
@@ -80,6 +98,8 @@ public class Sel {
     public void geserKanan() {
         if (isBatasKanan() == false) {
             kolom++;
+        }else{
+            kolom--;
         }
     }
 
@@ -89,6 +109,8 @@ public class Sel {
     public void geserKiri() {
         if (isBatasKiri() == false) {
             kolom--;
+        }else{
+            kolom++;
         }
     }
 
@@ -96,28 +118,45 @@ public class Sel {
      * Fungsi untuk mengecek sel ada di batas atas
      */
     public boolean isBatasAtas() {
-        return false;
+        if (baris * tinggi <= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
      * Fungsi untuk mengecek sel ada di batas bawah
      */
     public boolean isBatasBawah() {
-        return false;
+        if (baris * tinggi + tinggi < Tempat.batasBawah) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
      * Fungsi untuk geser atas
      */
     public void geserAtas(){
-        
+        if (isBatasAtas()==false) {
+            baris--;
+        }else{
+            baris++;
+        }
     }
     
     /**
      * Fungsi untuk geser bawah
      */
     public void geserBawah(){
-        
+        if (isBatasBawah() == false) {
+            baris++;
+        }else{
+            baris--;
+        }
+   
     }
     /**
      * @return the baris
